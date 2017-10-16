@@ -1,7 +1,7 @@
 function dialogFeld() {
-    var eingabe = prompt("Hi ich bin...", "Müsli");
+    var eingabe = prompt("Hi ich bin...", "Name");
     if (eingabe != null) {
         document.getElementById("hi").innerHTML =
-           "Ich esse jeden morgen " + eingabe + "und es schmeckt gut";
+           "Hi" + eingabe + "wie geht´s";
     }
 }
