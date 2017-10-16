@@ -1,8 +1,8 @@
 function dialogFeld() {
-    var eingabe = prompt("Hi ich bin...", "M�sli");
+    var eingabe = prompt("Hi ich bin...", "Name");
     if (eingabe != null) {
         document.getElementById("hi").innerHTML =
-            "Ich esse jeden morgen " + eingabe + "und es schmeckt gut";
+            "Hi" + eingabe + "wie geht�s";
     }
 }
 //# sourceMappingURL=miniseite.js.map
