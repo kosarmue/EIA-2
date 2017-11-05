@@ -224,33 +224,13 @@ namespace Aufgabe3 {
     function drawSkifahrer(_x: number, _y: number) {
         crc2.fillStyle = "#000000";
         crc2.beginPath();
-        crc2.arc(_x, _y, 4, 0, 2 * Math.PI);
+        crc2.arc(_x - 10, _y, 4, 0, 2 * Math.PI);
         crc2.fill();
+       crc2.fillStyle = "#00000";
+        crc2.fillRect(_x - 7.5, _y + 3, -4, 12);
         crc2.beginPath();
-        crc2.moveTo(_x - 5, _y + 5);
-        crc2.lineTo(_x + 1, _y + 7);
-        crc2.lineTo(_x - 3, _y + 16);
-        crc2.lineTo(_x - 9, _y + 14);
-        crc2.fill();
-        crc2.beginPath();
-        crc2.moveTo(_x - 9, _y + 14);
-        crc2.lineTo(_x - 11, _y + 25);
-        crc2.lineTo(_x - 9, _y + 25);
-        crc2.lineTo(_x - 6, _y + 14);
-        crc2.fill();
-        crc2.beginPath();
-        crc2.moveTo(_x - 6, _y + 15);
-        crc2.lineTo(_x - 2, _y + 25);
-        crc2.lineTo(_x, _y + 25);
-        crc2.lineTo(_x - 3, _y + 15);
-        crc2.fill();
-        crc2.beginPath();
-        crc2.moveTo(_x + 1, _y + 7);
-        crc2.lineTo(_x + 4, _y + 15);
-        crc2.lineTo(_x + 2, _y + 16);
-        crc2.lineTo(_x - 1, _y + 8);
-        crc2.fill();
-        crc2.strokeStyle = "#00000f;
+        crc2.stroke()
+        crc2.strokeStyle = "#000000";
         crc2.beginPath();
         crc2.moveTo(_x + 3, _y + 32);
         crc2.lineTo(_x - 9, _y + 8);
