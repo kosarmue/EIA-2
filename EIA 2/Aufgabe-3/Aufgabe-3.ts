@@ -1,5 +1,5 @@
 // Aufgabe: Aufagbe 2
-// Name: Müge Kosar
+// Name: Muege Kosar
 // Matrikel: 256213
 // Datum: 22.10.2017
 // Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
@@ -179,7 +179,7 @@ namespace Aufgabe3 {
         crc2.fillStyle = _color;
         crc2.fill();
     }
-    //        drawCloud(200, 140, 25, 0, 2, "#FFFFFF");
+    //drawCloud(200, 140, 25, 0, 2, "#FFFFFF");
 
 
     function drawCircle(_x: number, _y: number, _color: string) {
@@ -190,7 +190,7 @@ namespace Aufgabe3 {
         crc2.fill();
     }
 
-    //        window.setTimeout(animate, 200);
+    //window.setTimeout(animate, 200);
     //cloud
     function drawCloud(_x: number, _y: number, _radius: number, _startAngle: number, _endAngle: number, _color: string) {
         crc2.beginPath();
@@ -223,41 +223,7 @@ namespace Aufgabe3 {
     function drawSkifahrer(_x: number, _y:number) {
         crc2.fillStyle = "#000000";
         crc2.beginPath();
-        crc2.arc(_x, _y, 4, 0, 2 * Math.PI);
-        crc2.fill();
-        crc2.beginPath();
-        crc2.moveTo(_x - 5, _y + 5);
-        crc2.lineTo(_x + 1, _y + 7);
-        crc2.lineTo(_x - 3, _y + 16);
-        crc2.lineTo(_x - 9, _y + 14);
-        crc2.fill();
-        crc2.beginPath();
-        crc2.moveTo(_x - 9, _y + 14);
-        crc2.lineTo(_x - 11, _y + 25);
-        crc2.lineTo(_x - 9, _y + 25);
-        crc2.lineTo(_x - 6, _y + 14);
-        crc2.fill();
-        crc2.beginPath();
-        crc2.moveTo(_x - 6, _y + 15);
-        crc2.lineTo(_x - 2, _y + 25);
-        crc2.lineTo(_x, _y + 25);
-        crc2.lineTo(_x - 3, _y + 15);
-        crc2.fill();
-        crc2.beginPath();
-        crc2.moveTo(_x + 1, _y + 7);
-        crc2.lineTo(_x + 4, _y + 15);
-        crc2.lineTo(_x + 2, _y + 16);
-        crc2.lineTo(_x - 1, _y + 8);
-        crc2.fill();
-        crc2.strokeStyle = "#00000";
-        crc2.beginPath();
-        crc2.moveTo(_x + 3, _y + 32);
-        crc2.lineTo(_x - 9, _y + 8);
-        crc2.stroke();
-        crc2.beginPath();
-        crc2.moveTo(_x - 10, _y + 32);
-        crc2.lineTo(_x - 11, _y + 7);
-        crc2.stroke();
+        crc2.arc(100,75,25,0,2*Math.PI)
     }
     
 
