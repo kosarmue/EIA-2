@@ -1,4 +1,4 @@
-// Aufgabe: Aufagbe 2
+ // Aufgabe: Aufagbe 2
 // Name: Muege Kosar
 // Matrikel: 256213
 // Datum: 22.10.2017
@@ -149,8 +149,9 @@ namespace Aufgabe3 {
             let y = 360 + Math.random() * 650;
             drawTree(x, y, "#276D28");
             console.log(i);
+            }
 
-            for (let i = 0; i < 200; i++)
+            for (let i = 0; i < 100; i++) {
                 snowX[i] = Math.random() * 800;
             snowY[i] = Math.random() * 600;
             console.log(snowX[i]);
