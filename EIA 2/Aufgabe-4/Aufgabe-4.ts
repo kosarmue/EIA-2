@@ -283,7 +283,6 @@ namespace Aufgabe4 {
             }
             }
             for (let i = 0; i < skifahrer.length; i++) {
-                skifahrer[i].x += 1;
                 moveandDrawSkifahrer(skifahrer[i]);
                 if (skifahrer[i].x > 800) {
                     skifahrer[i].x = 0;
