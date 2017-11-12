@@ -1,4 +1,4 @@
- // Aufgabe: Aufagbe 2
+ // Aufgabe: Aufgabe 3
 // Name: Muege Kosar
 // Matrikel: 256213
 // Datum: 22.10.2017
@@ -135,7 +135,7 @@ namespace Aufgabe3 {
         crc2.stroke();
         crc2.fillStyle = "#276D28";
         crc2.fill();
-
+        
         //Aufgabe 2 - Tree
         drawTree(400, 445, "#276D28");
         drawTree(440, 420, "#276D28");
@@ -222,9 +222,25 @@ namespace Aufgabe3 {
     }
 
     function drawSkifahrer(_x: number, _y:number) {
-        crc2.fillStyle = "#000000";
+        //skifahrer
         crc2.beginPath();
-        crc2.arc(100,75,25,0,2*Math.PI)
+        crc2.arc(_x, _y, 8, 0, 2 * Math.PI);
+        crc2.arc(_x, _y + 18, 10, 0, 2 * Math.PI);
+        crc2.arc(_x, _y  + 40, 12, 0, 2 * Math.PI);
+        crc2.strokeStyle = "black";
+        crc2.stroke();
+        crc2.fillStyle = "white";
+        crc2.fill();
+        crc2.closePath();
+        //skiding
+        crc2.beginPath();
+        crc2.lineTo(_x + 20,_y +52);
+        crc2.lineTo(_x - 20,_y + 52);
+        crc2.strokeStyle = "black";
+        crc2.stroke();
+        crc2.fillStyle = "black";
+        crc2.fill();
+        crc2.closePath();    
     }
     
 
