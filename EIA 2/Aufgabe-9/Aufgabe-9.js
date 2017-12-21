@@ -7,23 +7,28 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 var Aufgabe9;
 (function (Aufgabe9) {
     window.addEventListener("load", init);
-    window.addEventListener("keydown", handleMousedown);
+    window.addEventListener("keydown", handleKeyDown);
     let word = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+    let letter = [];
+    let selectedLetter;
     function init(_event) {
         for (let i = 0; i < word.length; i++) {
-            let letter = document.createElement("div");
-            letter.style.backgroundColor = "#DB7093";
-            letter.style.textAlign = "center";
-            letter.style.width = "2.5em";
-            letter.style.height = "2.5em";
-            letter.style.margin = "0.4em";
-            letter.style.paddingTop = "1em";
-            letter.style.display = "inline-block";
-            letter.innerText = word[i];
-            letter.addEventListener("mousedown", placeLetter);
-            document.body.appendChild(letter);
+            let tempLetter = document.createElement("div");
+            tempLetter.style.backgroundColor = "#DB7093";
+            tempLetter.style.border = "1px solid #000000";
+            tempLetter.style.textAlign = "center";
+            tempLetter.style.width = "2.5em";
+            tempLetter.style.height = "2.5em";
+            tempLetter.style.margin = "0.4em";
+            tempLetter.style.paddingTop = "1em";
+            tempLetter.style.display = "inline-block";
+            tempLetter.innerText = word[i];
+            tempLetter.addEventListener("mousedown", selectLetter);
+            document.body.appendChild(tempLetter);
+            letter.push(tempLetter);
         }
         let paper = document.createElement("div");
+        paper.id = "paper";
         paper.style.width = "60em";
         paper.style.height = "30em";
         paper.style.paddingTop = "2em";
@@ -32,19 +37,47 @@ var Aufgabe9;
         paper.addEventListener("mousedown", placeLetter);
         document.body.appendChild(paper);
     }
-    function placeLetter(_event) {
-        let place = document.createElement("div");
-        place.style.fontSize = "2em";
-        place.style.position = "fixed";
-        place.addEventListener("mousedown", handleMousedown);
-        document.body.appendChild(place);
+    function handleKeyDown(_event) {
+        console.log("hi");
+        for (let i = 0; i < letter.length; i++) {
+            if (String.fromCharCode(_event.keyCode) == letter[i].innerHTML) {
+                console.log("test");
+                if (selectedLetter != undefined)
+                    selectedLetter.style.backgroundColor = "#DB7093";
+                selectedLetter = letter[i];
+                console.log(selectedLetter);
+                selectedLetter.style.backgroundColor = "#ffffff";
+            }
+        }
     }
-    function handleMousedown(_event) {
-        if (_event.altKey == false)
+    function selectLetter(_event) {
+        if (selectedLetter != undefined)
+            selectedLetter.style.backgroundColor = "#DB7093";
+        selectedLetter = _event.target;
+        console.log(selectedLetter);
+        selectedLetter.style.backgroundColor = "#ffffff";
+    }
+    function placeLetter(_event) {
+        if (_event.altKey == true)
             return;
-        else {
+        let place = document.createElement("div");
+        place.innerHTML = selectedLetter.innerHTML;
+        place.style.textAlign = "center";
+        place.style.width = "2.5em";
+        place.style.height = "2.5em";
+        place.style.paddingTop = "1em";
+        place.style.top = _event.pageY + "px";
+        console.log(place.style.marginTop);
+        place.style.left = _event.pageX + "px";
+        place.style.backgroundColor = "#DB7093";
+        place.style.position = "absolute";
+        place.addEventListener("mousedown", removeLetter);
+        document.getElementById("paper").appendChild(place);
+    }
+    function removeLetter(_event) {
+        if (_event.altKey == true) {
             let remove = _event.target;
-            document.body.removeChild(remove);
+            document.getElementById("paper").removeChild(remove);
         }
     }
 })(Aufgabe9 || (Aufgabe9 = {}));

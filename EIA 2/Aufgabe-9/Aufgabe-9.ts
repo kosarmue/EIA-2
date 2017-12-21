@@ -8,31 +8,35 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 namespace Aufgabe9 {
 
     window.addEventListener("load", init);
-    window.addEventListener("keydown", handleMousedown);
+    window.addEventListener("keydown", handleKeyDown);
 
     let word: string[] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-
+    let letter: HTMLDivElement[] = [];
+    let selectedLetter: HTMLDivElement;
 
     function init(_event: Event): void {
         for (let i: number = 0; i < word.length; i++) {
-            let letter: HTMLDivElement = document.createElement("div");
+            let tempLetter = document.createElement("div");
 
-            letter.style.backgroundColor = "#DB7093";
-            letter.style.textAlign = "center";
-            letter.style.width = "2.5em";
-            letter.style.height = "2.5em";
-            letter.style.margin = "0.4em";
-            letter.style.paddingTop = "1em";
-            letter.style.display = "inline-block";
-            letter.innerText = word[i];
+            tempLetter.style.backgroundColor = "#DB7093";
+            tempLetter.style.border = "1px solid #000000";
+            tempLetter.style.textAlign = "center";
+            tempLetter.style.width = "2.5em";
+            tempLetter.style.height = "2.5em";
+            tempLetter.style.margin = "0.4em";
+            tempLetter.style.paddingTop = "1em";
+            tempLetter.style.display = "inline-block";
+            tempLetter.innerText = word[i];
 
 
-            letter.addEventListener("mousedown", placeLetter);
-            document.body.appendChild(letter);
+            tempLetter.addEventListener("mousedown", selectLetter);
+            document.body.appendChild(tempLetter);
+            letter.push(tempLetter);
         }
 
         let paper: HTMLDivElement = document.createElement("div");
 
+        paper.id = "paper";
         paper.style.width = "60em";
         paper.style.height = "30em";
         paper.style.paddingTop = "2em";
@@ -44,24 +48,52 @@ namespace Aufgabe9 {
         document.body.appendChild(paper);
     }
 
+    function handleKeyDown(_event: KeyboardEvent): void {
+        console.log("hi");
+        for (let i: number = 0; i < letter.length; i++) { 
+            if (String.fromCharCode(_event.keyCode) == letter[i].innerHTML) {
+                console.log("test");
+                if (selectedLetter != undefined)
+                    selectedLetter.style.backgroundColor = "#DB7093";
+                selectedLetter = letter[i];
+                console.log(selectedLetter);
+                selectedLetter.style.backgroundColor = "#ffffff";     
+            }
+        }  
+    }
+    
+    function selectLetter(_event: MouseEvent): void {
+        if (selectedLetter != undefined)
+            selectedLetter.style.backgroundColor = "#DB7093";
+        selectedLetter = _event.target as HTMLDivElement;
+        console.log(selectedLetter);
+        selectedLetter.style.backgroundColor = "#ffffff";
+    }
+
     function placeLetter(_event: MouseEvent): void {
+        if (_event.altKey == true)
+            return;
         let place: HTMLDivElement = document.createElement("div");
 
-        place.style.fontSize = "2em";
-        place.style.position = "fixed";
-
-        place.addEventListener("mousedown", handleMousedown);
-        document.body.appendChild(place);
+        place.innerHTML = selectedLetter.innerHTML;
+        place.style.textAlign = "center";
+        place.style.width = "2.5em";
+        place.style.height = "2.5em";
+        place.style.paddingTop = "1em";
+        place.style.top = _event.pageY + "px";
+        console.log(place.style.marginTop);
+        place.style.left = _event.pageX + "px";
+        place.style.backgroundColor = "#DB7093";
+        place.style.position = "absolute";
+        place.addEventListener("mousedown", removeLetter);
+        document.getElementById("paper").appendChild(place);
+        
     }
 
-    function handleMousedown(_event: MouseEvent): void {
-        if (_event.altKey == false)
-            return;
-
-        else {
-            let remove: HTMLDivElement = <HTMLDivElement>_event.target;
-            document.body.removeChild(remove);
+    function removeLetter(_event: MouseEvent): void { 
+        if (_event.altKey == true) {
+            let remove: HTMLDivElement = _event.target as HTMLDivElement;
+            document.getElementById("paper").removeChild(remove);
         }
     }
-
 }
