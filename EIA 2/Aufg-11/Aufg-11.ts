@@ -1,8 +1,8 @@
 namespace auf11 {
-    window.addEventListener("load", createElements); // wenn window geladen, createElements ausgef�hrt
-    window.addEventListener("change", warenkorb); // wenn sich was im formular ändert, wird warenkorb aufgerufen
+    window.addEventListener("load", createElements); 
+    window.addEventListener("change", warenkorb); 
     var name: HTMLInputElement;// Variable vom Typ...
-    var strasse: HTMLInputElement; // Input-Element: Kann ich Sachen reinschreiben
+    var strasse: HTMLInputElement; 
     var hNr: HTMLInputElement;
     var ort: HTMLInputElement;
     var plz: HTMLInputElement;
