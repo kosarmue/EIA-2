@@ -41,7 +41,7 @@ namespace auf11 {
             if (posten[i].art == "Nadeln") {
                 var radioButton: HTMLInputElement = document.createElement("input");
                 radioButton.type = "radio";
-                radioButton.name = "Nadeln"; // Hey, das ist ja immer das gleiche :D
+                radioButton.name = "Nadeln"; 
                 radioButton.id = "radio" + i;
                 nadeln.appendChild(radioButton);
 
