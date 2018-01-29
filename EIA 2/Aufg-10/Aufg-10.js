@@ -16,13 +16,6 @@ var baumkonfig;
         { art: "Lieferkonditionen", name: "Standard-Lieferung", preis: 3.00 },
         { art: "Lieferkonditionen", name: "Express-Lieferung", preis: 10.00 }
     ];
-    baumkonfig.baumArt = []; //Assoziatives Array (In jeder Schublade 2 F�cher)
-    baumkonfig.b = [];
-    for (var i = 0; i < baumkonfig.posten.length; i++) {
-        if (baumkonfig.posten[i].art == "Baumform") {
-            var temp = [baumkonfig.posten[i].name, baumkonfig.posten[i].preis]; //erstellt ein assoziatives array 
-            baumkonfig.baumArt.push(temp); //Variable temp wird an n�chste Stelle des Arrays gepusht
-        }
-    }
+    
 })(baumkonfig || (baumkonfig = {}));
 //# sourceMappingURL=Aufg-10.js.map
