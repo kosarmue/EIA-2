@@ -22,14 +22,5 @@ namespace baumkonfig {
         { art: "Lieferkonditionen", name: "Standard-Lieferung", preis: 3.00 },
         { art: "Lieferkonditionen", name: "Express-Lieferung", preis: 10.00 }
     ];
-    
-    export let baumArt: string[][] = []; //Assoziatives Array (In jeder Schublade 2 F�cher)
-    export let b: string[][] = [];
-    
-    for (var i: number = 0; i < posten.length; i++) {
-        if (posten[i].art == "Baumform") {
-           var temp: any = [posten[i].name, posten[i].preis]; //erstellt ein assoziatives array 
-           baumArt.push(temp); //Variable temp wird an n�chste Stelle des Arrays gepusht
-        }
-    }
+   
 }
