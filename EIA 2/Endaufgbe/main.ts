@@ -64,8 +64,7 @@ window.onload = function()
                         break;
                 }
 
-                // Check that it's not out of bounds. If it is show the game over popup
-                // and exit the function.
+               
                 if (snake[0].x < 0 || 
                     snake[0].x >= 15 ||
                     snake[0].y < 0 ||
@@ -74,9 +73,7 @@ window.onload = function()
                     return;
                 }
 
-                // Detect if we hit food and increase the score if we do,
-                // generating a new food position in the process, and also
-                // adding a new element to the snake array.
+               
                 if (map[snake[0].x][snake[0].y] === 1) {
                     score += 1;
                     map = generateFood(map);
@@ -84,8 +81,6 @@ window.onload = function()
                     snake.push({ x: snake[snake.length - 1].x, y: snake[snake.length - 1].y });
                     map[snake[snake.length - 1].x][snake[snake.length - 1].y] = 2;
 
-                // Let's also check that the head is not hitting other part of its body
-                // if it does, we also need to end the game.
                 } else if (map[snake[0].x][snake[0].y] === 2) {
                     showGameOver();
                     return;
@@ -93,9 +88,7 @@ window.onload = function()
 
                 map[snake[0].x][snake[0].y] = 2;
             } else {
-                // Remember that when they move, the body pieces move to the place
-                // where the previous piece used to be. If it's the last piece, it
-                // also needs to clear the last position from the matrix
+                
                 if (i === (snake.length - 1)) {
                     map[snake[i].x][snake[i].y] = null;
                 }
@@ -105,10 +98,10 @@ window.onload = function()
             }
         }
 
-        // Draw the border as well as the score
+        
         drawMain();
 
-        // Start cycling the matrix
+        
         for (var x = 0; x < map.length; x++) {
             for (var y = 0; y < map[0].length; y++) {
                 if (map[x][y] === 1) {
@@ -158,12 +151,11 @@ window.onload = function()
 
     function generateSnake(map)
     {
-        // Generate a random position for the row and the column of the head.
+        
         var rndX = Math.round(Math.random() * 19),
             rndY = Math.round(Math.random() * 19);
 
-        // Let's make sure that we're not out of bounds as we also need to make space to accomodate the
-        // other two body pieces
+       
         while ((rndX - snake.length) < 0) {
             rndX = Math.round(Math.random() * 19);
         }
@@ -178,10 +170,9 @@ window.onload = function()
 
     function showGameOver()
     {
-        // Disable the game.
+        
         active = false;
-
-        // Clear the canvas
+        
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.fillStyle = 'black';
         ctx.font = '16px sans-serif';
