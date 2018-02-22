@@ -21,24 +21,22 @@ window.onload = function()
 
     var body = document.getElementsByTagName('body')[0];
     body.appendChild(canvas);
-
-    // Add the snake
+    
     map = generateSnake(map);
-
-    // Add the food
+    
     map = generateFood(map);
 
     drawGame();
 
     window.addEventListener('keydown', function(e) {
         if (e.keyCode === 38 && direction !== 3) {
-            direction = 2; // Up
+            direction = 2; // Hoch
         } else if (e.keyCode === 40 && direction !== 2) {
-            direction = 3; // Down
+            direction = 3; // Runter
         } else if (e.keyCode === 37 && direction !== 0) {
-            direction = 1; // Left
+            direction = 1; // Links
         } else if (e.keyCode === 39 && direction !== 1) {
-            direction = 0; // Right
+            direction = 0; // Rechts
         }
     });
 
@@ -50,16 +48,16 @@ window.onload = function()
 
             if (i === 0) {
                 switch(direction) {
-                    case 0: // Right
+                    case 0: // Rechts
                         snake[0] = { x: snake[0].x + 1, y: snake[0].y }
                         break;
-                    case 1: // Left
+                    case 1: // Links
                         snake[0] = { x: snake[0].x - 1, y: snake[0].y }
                         break;
-                    case 2: // Up
+                    case 2: // Hoch
                         snake[0] = { x: snake[0].x, y: snake[0].y - 1 }
                         break;
-                    case 3: // Down
+                    case 3: // Runter
                         snake[0] = { x: snake[0].x, y: snake[0].y + 1 }
                         break;
                 }
