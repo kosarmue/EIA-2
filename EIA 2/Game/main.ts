@@ -10,9 +10,6 @@ namespace game {
             snake = new Array(3),
             playing = true,
             speed = 500;
-            let Background: background;
-            let Snake: snake;
-            let Food: food;
 
         var cnvs = new Array(20);
         for (var i = 0; i < cnvs.length; i++) {
