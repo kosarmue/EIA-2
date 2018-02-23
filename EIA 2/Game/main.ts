@@ -10,6 +10,9 @@ namespace game {
             snake = new Array(3),
             playing = true,
             speed = 500;
+            let Background: background;
+            let Snake: snake;
+            let Food: food;
 
         var cnvs = new Array(20);
         for (var i = 0; i < cnvs.length; i++) {
@@ -43,12 +46,12 @@ namespace game {
         });
 
         function drawGame() {
-            //canvas löschen
+            //canvas lÃ¶schen
             crc2.clearRect(0, 0, canvas.width, canvas.height);
 
             for (var i = snake.length - 1; i >= 0; i--) {
 
-                //checken ob Schlangenkopf irgendwo anstößt,d.h. border vom canvas 
+                //checken ob Schlangenkopf irgendwo anstÃ¶ÃŸt,d.h. border vom canvas 
                 if (i === 0) {
                     switch (direction) {
                         case 0: //rechts
@@ -85,7 +88,7 @@ namespace game {
                             level += 1;
                         }
 
-                        //checken ob Schlangenkopf auf Schlangenkörper stößt, wenn das der Fall ist dann game over
+                        //checken ob Schlangenkopf auf SchlangenkÃ¶rper stÃ¶ÃŸt, wenn das der Fall ist dann game over
                     } else if (cnvs[snake[0].x][snake[0].y] === 2) {
                         gameOver();
                         return;
@@ -93,7 +96,7 @@ namespace game {
 
                     cnvs[snake[0].x][snake[0].y] = 2;
                 } else {
-                    //wenn Schlange sich bewegt soll der Körper immer dorthin, wo quadrat davor war.  
+                    //wenn Schlange sich bewegt soll der KÃ¶rper immer dorthin, wo quadrat davor war.  
                     if (i === (snake.length - 1)) {
                         cnvs[snake[i].x][snake[i].y] = null;
                     }
@@ -138,7 +141,7 @@ namespace game {
             var randomX = Math.round(Math.random() * 19),
                 randomY = Math.round(Math.random() * 19);
 
-            //Futter und Schlangenkörper dürfen nicht an gleicher Stelle sein
+            //Futter und SchlangenkÃ¶rper dÃ¼rfen nicht an gleicher Stelle sein
             while (cnvs[randomX][randomY] === 2) {
                 randomX = Math.round(Math.random() * 19);
                 randomY = Math.round(Math.random() * 19);
