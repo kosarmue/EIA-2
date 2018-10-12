@@ -4,5 +4,5 @@ function dialogFeld() {
         document.getElementById("hi").innerHTML =
            "Hi, " +  eingabe  + " was geht?";
     }
-    console.log("Hey ", eingabe, ", alles gut?");
+    console.log("Hi ", eingabe, " was geht?");
 }
