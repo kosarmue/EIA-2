@@ -1,0 +1,46 @@
+div {
+	width: 8em;
+	height: 9em;
+	padding-top: 3em;
+	font-family: sans-serif;
+	text-align: center;
+	line-height: 2;
+}
+
+#nachziehstapel {
+	float: left;
+	position: relative;
+	top: 3em;
+	left: 3em;
+	background-color: red;
+	cursor: pointer;
+}
+
+#hand {
+	bottom: 6em;
+	left: 3em;
+	width: auto;
+	height: auto;
+	padding: 1em 1em;
+}
+
+.cardsyouhave {
+	border: 2px black solid;
+	font-weight: 700;
+	display: inline;
+	float: left;
+	margin: 1em 1em;
+	cursor: pointer;
+}
+
+#ablagestapel {
+	padding-top: 1em;
+	height: 11em;
+	float: left;
+	position: relative;
+	top: 3em;
+	left: 45em;
+	background-color: black;
+	color: white;
+	display: none;
+}
