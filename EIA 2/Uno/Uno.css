@@ -1,0 +1,9 @@
+.Card {
+	border: 2px black solid;
+	font-weight: 700;
+	display: inline;
+	float: left;
+	margin: 1em 1em;
+	cursor: pointer;
+	border-radius: 25px;
+}
